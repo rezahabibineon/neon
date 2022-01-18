@@ -5,3 +5,4 @@ pyyaml
 colorlog
 orator
 pydantic
+psycopg2
