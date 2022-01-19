@@ -28,7 +28,7 @@ async def verify_token(api_token_header: str = Security(API_TOKEN_HEADER)):
     if api_token_header not in PARAMS.API_TOKEN:
         raise HTTPException(status_code=status.HTTP_403_FORBIDDEN, detail="Could not validate credentials")
 
-app.mount("/static", StaticFiles(directory="static"), name="static")
+app.mount("/static", StaticFiles(directory="assets"), name="static")
 
 @app.get("/docs", include_in_schema=False)
 async def custom_swagger_ui_html():

@@ -2,5 +2,5 @@ from apps.models import Model
 
 
 class Loan(Model):
-    __table__ = 'loan'
+    __table__ = 'lendings'
     __primary_key__ = 'loanid'
