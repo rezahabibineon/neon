@@ -58,3 +58,23 @@ class ControllerLoan(object):
             result.message = str(e)
 
         return result
+    
+    @classmethod
+    def get_total_by_feature(cls, gender, marital_status):
+        result = BaseResponse()
+        result.status = 400
+        
+        data = Loan.all().count()
+        
+        if gender:
+            loan = Loan.where('gender', '=', gender) 
+            data = loan.count()
+       
+        if marital_status:
+            loan = loan.where('marital_status', '=', marital_status)
+            data = loan.count()
+        
+        result.status = 200
+        result.message = "Success"
+        result.data = { "count_lount": data }
+        return result
