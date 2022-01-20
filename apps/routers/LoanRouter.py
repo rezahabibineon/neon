@@ -24,7 +24,8 @@ async def get_loan_by_cif_debug(response: Response, input_data=Body(..., example
 
 @router.get("/get_total_by_feature") 
 async def get_total_by_feature(response: Response, 
-            gender: Optional[str]=Query(None), marital_status: Optional[str]=Query(None)):
+                               gender: Optional[str]=Query(None), 
+                               marital_status: Optional[str]=Query(None)):
     result = loan.get_total_by_feature(gender=gender, marital_status=marital_status)
     response.status_code = result.status
     return result
